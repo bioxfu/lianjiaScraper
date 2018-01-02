@@ -1,10 +1,11 @@
 #' Scrape house price from the Lianjia website
 #'
-#' @param city 'sh' (shanghai), 'bj' (beijin), 'gz' (guangzhou), 'cd' (chengdu)
+#' @param city 'sh' (shanghai)
 #' @param page_num Number of pages to scrape
 #' @return A data frame
 #' @examples
-#' searchLianjia(city = 'sh', page_num = 2)
+#' # In this version, we only support Shanghai city
+#' price <- searchLianjia(city = 'sh', page_num = 100)
 searchLianjia <- function(city = 'sh', page_num = 2) {
   community_info <- NULL
   pb <- txtProgressBar(min = 1, max = page_num, style = 3)

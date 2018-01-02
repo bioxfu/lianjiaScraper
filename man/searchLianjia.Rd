@@ -7,7 +7,7 @@
 searchLianjia(city = "sh", page_num = 2)
 }
 \arguments{
-\item{city}{'sh' (shanghai), 'bj' (beijin), 'gz' (guangzhou), 'cd' (chengdu)}
+\item{city}{'sh' (shanghai)}
 
 \item{page_num}{Number of pages to scrape}
 }
@@ -18,5 +18,6 @@ A data frame
 Scrape house price from the Lianjia website
 }
 \examples{
-searchLianjia(city = 'sh', page_num = 2)
+# In this version, we only support Shanghai city
+price <- searchLianjia(city = 'sh', page_num = 100)
 }
