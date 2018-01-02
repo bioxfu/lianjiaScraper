@@ -1,0 +1,15 @@
+Package: lianjiaScraper
+Type: Package
+Title: Scrape house price from the Lianjia website
+Version: 0.1.0
+Author: Xing Fu
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: Scrape house price from the Lianjia website
+    Scrape house price from the Lianjia website.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+Imports:
+    dplyr,
+    rvest
+RoxygenNote: 6.0.1
