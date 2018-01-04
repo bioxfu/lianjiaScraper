@@ -12,7 +12,8 @@ searchLianjia <- function(city = 'sh', page_num = 2) {
   for (i in 1:page_num) {
     setTxtProgressBar(pb, i)
     url <- paste0('http://', city, '.lianjia.com/xiaoqu/d', i)
-    page <- xml2::read_html(url)
+    download.file(url, destfile = "scrapedpage.html", quiet=TRUE)
+    page <- xml2::read_html('scrapedpage.html')
     location <- page %>% rvest::html_nodes('#house-lst .actshowMap_list') %>% rvest::html_attrs()
     location <- as.data.frame(do.call(rbind, location))
     location <- select(location, community=xiaoqu, districtname, platename)
@@ -20,7 +21,7 @@ searchLianjia <- function(city = 'sh', page_num = 2) {
     community_info <- rbind(community_info, data.frame(location, price, stringsAsFactors = F))
     Sys.sleep(5)
   }
-
+  system('rm scrapedpage.html')
   tmp <- apply(community_info[1], 1, split_community) %>% t()
   community_info$longitude <- as.numeric(tmp[, 1])
   community_info$latitude <- as.numeric(tmp[, 2])
